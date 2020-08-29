@@ -11,6 +11,7 @@
     <body>
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3">
+                <img src = "https://www.dictionary.com/e/wp-content/uploads/2020/01/WisdomvsKnowledge_1000x700_jpg_OHVUvmTo.jpg" alt = "logo" width="230px">
                 <h2>Wiki</h2>
                 <form action="{% url 'search' %}" method="get">
                     <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
@@ -19,7 +20,7 @@
                     <a href="{% url 'index' %}">Home</a>
                 </div>
                 <div>
-                    Create New Page
+                    <a href = "{% url 'newPage' %}">Create New Page</a>
                 </div>
                 <div>
                     Random Page
