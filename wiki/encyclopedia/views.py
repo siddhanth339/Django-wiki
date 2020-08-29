@@ -73,3 +73,31 @@ def newPage(request): # creates a new page
     return render(request, "encyclopedia/newPage.html", {
         "form": NewPage()
     })
+
+class EditPage(forms.Form):
+    content = forms.CharField(widget=forms.Textarea(attrs={"style": "margin-left: 50px; width: 800px; height: 500px"}))
+
+def edit(request, name): # edits a page
+    
+    if request.method == "POST":
+        form = EditPage(request.POST)
+
+        if (form.is_valid()):
+            cont = form.cleaned_data["content"]
+            
+            util.save_entry(name, cont)
+
+            return render(request, "encyclopedia/Entry.html",{
+                "ti": name,
+                "content": markdown2.markdown(util.get_entry(name))
+                })
+        else:
+            return render(request, "encyclopedia/EditPage.html", {
+                "form": form,
+                "title": name
+            })
+    
+    return render(request, "encyclopedia/EditPage.html", {
+        "form": EditPage({'content': util.get_entry(name)}),
+        "title": name
+    })
