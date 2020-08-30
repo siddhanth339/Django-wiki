@@ -1,4 +1,5 @@
 {% extends "encyclopedia/layout.html" %}
+{% load static %}
 
 {% block title %}
     {{ ti }}
@@ -6,5 +7,23 @@
 
 {% block body %}
     {{content | safe}}
-    <button type = "button"><a href = "{% url 'edit' ti %}">Edit</a></button>
+    <button class = "btn btn-primary"><a style = "text-decoration: none; color: white" href = "{% url 'edit' ti %}">Edit</a></button>
+{% endblock %}
+
+{% block body1 %}
+    {% if ti == 'Bootstrap' %}
+        <img id = "IMG" src = "{% static 'encyclopedia/images/Bootstrap.png' %}" alt = "image" style="position: absolute; top: 0px; right: 0px; width: 100%;">
+    {% elif ti == 'CSS' %}
+        <img id = "IMG" src = "{% static 'encyclopedia/images/CSS.png' %}" alt = "image" style="position: absolute; top: 0px; right: 0px; width: 100%;">
+    {% elif ti == 'Django' %}
+        <img id = "IMG" src = "{% static 'encyclopedia/images/Django.png' %}" alt = "image" style="position: absolute; top: 0px; right: 0px; width: 100%;">
+    {% elif ti == 'Python' %}
+        <img id = "IMG" src = "{% static 'encyclopedia/images/Python.png' %}" alt = "image" style="position: absolute; top: 0px; right: 0px; width: 100%;">
+    {% elif ti == 'Git' %}
+        <img id = "IMG" src = "{% static 'encyclopedia/images/Git.png' %}" alt = "image" style="position: absolute; top: 0px; right: 0px; width: 100%;">
+    {% elif ti == 'HTML' %}
+        <img id = "IMG" src = "{% static 'encyclopedia/images/HTML.png' %}" alt = "image" style="position: absolute; top: 0px; right: 0px; width: 100%;">
+    {% elif ti == 'JavaScript' %}
+        <img id = "IMG" src = "{% static 'encyclopedia/images/JavaScript.png' %}" alt = "image" style="position: absolute; top: 0px; right: 0px; width: 100%;">
+    {% endif %}
 {% endblock %}

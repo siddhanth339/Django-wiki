@@ -48,8 +48,8 @@ def search(request):
                     })
 
 class NewPage(forms.Form):
-    title = forms.CharField()
-    content = forms.CharField(widget=forms.Textarea(attrs={"style": "margin-left: 50px; width: 500px; height: 500px"}))
+    title = forms.CharField(widget=forms.TextInput(attrs={"style":  "width: 400px"}))
+    content = forms.CharField(widget=forms.Textarea(attrs={"style": "width: 800px; height: 500px"}))
 
 def newPage(request): # creates a new page
     if request.method == "POST":
@@ -75,7 +75,7 @@ def newPage(request): # creates a new page
     })
 
 class EditPage(forms.Form):
-    content = forms.CharField(widget=forms.Textarea(attrs={"style": "margin-left: 50px; width: 800px; height: 500px"}))
+    content = forms.CharField(widget=forms.Textarea(attrs={"style": "width: 800px; height: 500px"}))
 
 def edit(request, name): # edits a page
     

@@ -23,8 +23,14 @@
                     <a href = "{% url 'newPage' %}">Create New Page</a>
                 </div>
             </div>
-            <div class="main col-lg-10 col-md-9">
+
+            <div class="main col-lg-8 col-md-7">
                 {% block body %}
+                {% endblock %}
+            </div>
+
+            <div class="main col-lg-2 col-md-2">
+                {% block body1 %}
                 {% endblock %}
             </div>
         </div>

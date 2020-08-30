@@ -1,15 +1,18 @@
 {% extends "encyclopedia/layout.html" %}
+{% load crispy_forms_tags %}
+
 {% block title %}
     Edit Page
 {% endblock %}
 
 {% block body %}
-    <table>
+ 
         <h1>{{ title }}</h1>
-        <form action = "{% url 'edit' title %}" method="POST">
-            {% csrf_token %}
-            {{ form.as_table }}
-            <input type = "submit" value = "Save">
-        </form>
-    </table>
+        <div style = "margin-left: 20px">
+            <form action = "{% url 'edit' title %}" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input class = "btn btn-primary" type = "submit" value = "Save">
+            </form>
+        </div>
 {% endblock %}
